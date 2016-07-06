@@ -37,17 +37,14 @@ public class Cart {
         return productsTotal + deliveryCost;
     }
 
-    public String getReceipt() {
-        StringBuilder s = new StringBuilder("Our Store");
-        s.append("Receipt no.: " + ++receiptNo + "\n");
+    public String fillReceipt(Receipt receipt) {
         for (Product p : products) {
-            s.append(p.getName() + ": " + p.getCount() + " x " + p.getPrice() + " = " + p.getFullPriceForAll() + "\n");
+            p.fillReceipt(receipt);
         }
         if (hasDelivery) {
-            s.append("Delivery: " + DELIVERY_COST + "\n");
+            receipt.addDelivery(DELIVERY_COST);
         }
-        s.append("Total: " + getTotalPrice() + "\n");
-        s.append("Date: " + new SimpleDateFormat("dd-M-yyyy hh:mm:ss").format(new Date()) + "\n");
-        return s.toString();
+        receipt.setTotalPrice(getTotalPrice());
+        return receipt.toString();
     }
 }
