@@ -29,7 +29,10 @@ public class Cart {
     }
 
     public double getTotalPrice() {
-        double productsTotal = products.stream().mapToDouble(Product::getFullPriceForAll).sum();
+        double productsTotal = 0;
+        for (Product p : products) {
+            productsTotal += p.getFullPriceForAll();
+        }
         double deliveryCost = hasDelivery ? DELIVERY_COST : 0;
         return productsTotal + deliveryCost;
     }
