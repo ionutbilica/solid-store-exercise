@@ -20,7 +20,7 @@ public class HtmlReceiptTest {
         MockClock mockClock = new MockClock(fixedDate);
         MockIdGenerator receiptNoGenerator = new MockIdGenerator(33);
         ReceiptFactory receiptFactory = new ConcreteReceiptFactory(receiptNoGenerator, mockClock);
-        store = new Store(receiptFactory);
+        store = new Store(new TestStock(), new CartsRepo(new MockIdGenerator(1)), receiptFactory);
 
         cartId = store.createNewCart();
     }
@@ -37,7 +37,6 @@ public class HtmlReceiptTest {
 
     @Test
     public void testTwoProducts() {
-        new TestStock().insertIntoStore(store);
         store.addProductToCart(TestStock.BREAD_NAME, cartId);
         store.addProductToCart(TestStock.WINE_NAME, 2, cartId);
         String receipt = store.pay(cartId, ReceiptFactory.Format.HTML.toString());
@@ -53,7 +52,6 @@ public class HtmlReceiptTest {
 
     @Test
     public void testWithDelivery() {
-        new TestStock().insertIntoStore(store);
         store.addProductToCart(TestStock.BREAD_NAME, cartId);
         store.addProductToCart(TestStock.WINE_NAME, 2, cartId);
         store.addDeliveryToCart(cartId);

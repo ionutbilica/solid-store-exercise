@@ -1,4 +1,4 @@
-package com.luxoft.training.solid.store.exception;
+package com.luxoft.training.solid.store;
 
 import com.luxoft.training.solid.store.Product;
 
