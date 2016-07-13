@@ -47,4 +47,12 @@ public class Cart {
         receipt.setTotalPrice(getTotalPrice());
         return receipt.toString();
     }
+
+    public CartData getData() {
+        List<ProductData> pd = new ArrayList<>();
+        for (Product p : products) {
+            pd.add(p.getData());
+        }
+        return new CartData(id, pd, hasDelivery);
+    }
 }

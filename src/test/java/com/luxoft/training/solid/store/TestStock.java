@@ -19,10 +19,10 @@ public class TestStock implements Stock {
     }
 
     @Override
-    public Product takeProduct(String name, int count) {
+    public ProductData takeProduct(String name, int count) {
         Product productInStock = findProduct(name);
         removeProduct(productInStock, count);
-        return new Product(productInStock.getName(), productInStock.getPrice(), count);
+        return new Product(productInStock, count).getData();
     }
 
     private void addProduct(String name, double price, int count) {
@@ -46,9 +46,9 @@ public class TestStock implements Stock {
 
     private void removeProduct(Product p, int countToRemove) {
         if (countToRemove > p.getCount()) {
-            throw new NotEnoughInStockException(p, countToRemove);
+            throw new NotEnoughInStockException(p.getData(), countToRemove);
         }
-        p = new Product(p.getName(), p.getPrice(), p.getCount() - countToRemove);
+        p = new Product(p, p.getCount() - countToRemove);
         products.put(p.getName(), p);
     }
 }
