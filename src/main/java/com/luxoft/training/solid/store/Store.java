@@ -1,5 +1,12 @@
 package com.luxoft.training.solid.store;
 
+import com.luxoft.training.solid.store.persistence.CartData;
+import com.luxoft.training.solid.store.persistence.CartsRepo;
+import com.luxoft.training.solid.store.persistence.ProductData;
+import com.luxoft.training.solid.store.persistence.Stock;
+import com.luxoft.training.solid.store.receipt.Receipt;
+import com.luxoft.training.solid.store.receipt.ReceiptFactory;
+
 public class Store implements Sales {
 
     private final Stock stock;

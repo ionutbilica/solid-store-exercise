@@ -1,5 +1,8 @@
 package com.luxoft.training.solid.store;
 
+import com.luxoft.training.solid.store.persistence.ProductData;
+import com.luxoft.training.solid.store.receipt.Receipt;
+
 public final class Product {
 
     private final String name;

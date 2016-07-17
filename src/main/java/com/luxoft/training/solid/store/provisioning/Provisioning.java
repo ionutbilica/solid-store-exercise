@@ -1,6 +1,6 @@
 package com.luxoft.training.solid.store.provisioning;
 
-import com.luxoft.training.solid.store.ProductNotFoundException;
+import com.luxoft.training.solid.store.persistence.ProductNotFoundException;
 
 public interface Provisioning {
 

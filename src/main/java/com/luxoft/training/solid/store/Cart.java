@@ -1,8 +1,10 @@
 package com.luxoft.training.solid.store;
 
-import java.text.SimpleDateFormat;
+import com.luxoft.training.solid.store.persistence.CartData;
+import com.luxoft.training.solid.store.persistence.ProductData;
+import com.luxoft.training.solid.store.receipt.Receipt;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Cart {

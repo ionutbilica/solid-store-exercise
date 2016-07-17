@@ -1,12 +1,12 @@
 package com.luxoft.training.solid.store.integration.persistence;
 
 import com.luxoft.training.solid.store.Cart;
-import com.luxoft.training.solid.store.CartData;
+import com.luxoft.training.solid.store.persistence.CartData;
 import com.luxoft.training.solid.store.Product;
-import com.luxoft.training.solid.store.ProductData;
-import com.luxoft.training.solid.store.persistence.h2.H2CartsRepo;
-import com.luxoft.training.solid.store.persistence.h2.H2Connection;
-import com.luxoft.training.solid.store.persistence.h2.H2ProductsRepo;
+import com.luxoft.training.solid.store.persistence.ProductData;
+import com.luxoft.training.solid.store.persistenceservice.h2.H2CartsRepo;
+import com.luxoft.training.solid.store.persistenceservice.h2.H2Connection;
+import com.luxoft.training.solid.store.persistenceservice.h2.H2ProductsRepo;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
